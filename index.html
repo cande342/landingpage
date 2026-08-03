@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candela Gómez | Desarrolladora Frontend & Angular</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Desarrolladora frontend Angular freelance. Desarrollo de sistemas de gestión, corrección de bugs, maquetado responsive e integración de IA.">
+  <meta name="keywords" content="Desarrolladora Angular, Frontend Freelance, Programadora Angular Mendoza, Corrección de bugs web, Desarrollo frontend Argentina, Integración IA web">
+  <meta name="author" content="Candela Gómez">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Candela Gómez — Frontend Dev">
+  <meta property="og:title" content="Candela Gómez | Desarrolladora Frontend & IA">
+  <meta property="og:description" content="Desarrollo sistemas de gestión, arreglo errores en producción e integro IA en tu negocio. Consulta por WhatsApp.">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Fonts: Space Grotesk, DM Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Candela Gómez - Desarrollo Frontend Angular",
+    "description": "Desarrollo de aplicaciones frontend en Angular, corrección de bugs en producción e integración de asistentes con Inteligencia Artificial.",
+    "email": "gcandela894@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mendoza",
+      "addressCountry": "AR"
+    },
+    "priceRange": "$$",
+    "knowsAbout": ["Angular", "TypeScript", "React", "APIs REST", "IA", "CSS", "Frontend Development"]
+  }
+  </script>
+
+  <style>
+    /* Color Tokens - Modo Oscuro por Defecto */
+    :root {
+      --bg-dark: #0B0F14;
+      --bg-surface: #111827;
+      --bg-surface-hover: #1F2937;
+      --accent-cyan: #22D3EE;
+      --accent-purple: #818CF8;
+      --accent-cyan-glow: rgba(34, 211, 238, 0.15);
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --input-bg: #0B0F14;
+      --header-bg: rgba(11, 15, 20, 0.75);
+      
+      --font-title: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* Color Tokens - Modo Claro */
+    [data-theme="light"] {
+      --bg-dark: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-surface-hover: #F1F5F9;
+      --accent-cyan: #0891B2;
+      --accent-purple: #4F46E5;
+      --accent-cyan-glow: rgba(8, 145, 178, 0.12);
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border-color: rgba(15, 23, 42, 0.12);
+      --input-bg: #F1F5F9;
+      --header-bg: rgba(248, 250, 252, 0.82);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-title); color: var(--text-main); line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
+    section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); position: relative; }
+
+    .badge-mono {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-glow);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.8rem 1.5rem; font-family: var(--font-body); font-weight: 600;
+      border-radius: 6px; cursor: pointer; transition: all 0.2s ease; border: none;
+    }
+    .btn-primary { background-color: var(--accent-cyan); color: #000; box-shadow: 0 0 15px var(--accent-cyan-glow); }
+    [data-theme="light"] .btn-primary { color: #FFF; }
+    .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 25px rgba(34, 211, 238, 0.3); transform: translateY(-1px); }
+    .btn-secondary { background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color); backdrop-filter: blur(4px); }
+    .btn-secondary:hover { background-color: var(--bg-surface); border-color: var(--text-muted); }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky; top: 0; 
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      z-index: 100; 
+      padding: 0.9rem 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    
+    .brand { 
+      font-family: var(--font-mono); 
+      font-weight: 700; 
+      color: var(--accent-cyan);
+      letter-spacing: -0.5px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .brand:hover {
+      text-shadow: 0 0 10px var(--accent-cyan-glow);
+      transform: translateY(-1px);
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; font-size: 0.9rem; font-weight: 500; }
+    
+    .nav-links a {
+      position: relative;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      padding: 0.3rem 0;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent-cyan);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+    .nav-links a:hover { color: var(--text-main); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .controls { display: flex; gap: 0.5rem; align-items: center; }
+    .control-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .control-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan-glow);
+    }
+
+    /* SECCIÓN HERO CON EFECTOS DISCRETOS DE FONDO Y TEXTO */
+    .hero {
+      padding: 7rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Formas de luz de fondo (Glow Blobs) */
+    .hero-glow-1 {
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(60px);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 0%;
+      right: -5%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.10) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(70px);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Degradado sutil para el título */
+    .hero h1 { 
+      font-size: 2.8rem; 
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text-main) 60%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 720px; margin-bottom: 2.2rem; }
+    .hero-buttons { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+
+    .chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .chip { 
+      font-family: var(--font-mono); 
+      font-size: 0.85rem; 
+      background: var(--bg-surface); 
+      border: 1px solid var(--border-color); 
+      padding: 0.4rem 0.8rem; 
+      border-radius: 20px; 
+      color: var(--text-muted);
+      backdrop-filter: blur(4px);
+    }
+
+    /* SOLUCIONES */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .solution-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.75rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .solution-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 10px 25px -10px var(--accent-cyan-glow);
+    }
+    
+    .solution-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--accent-cyan-glow);
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--accent-cyan);
+    }
+    .solution-icon-box svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2;
+    }
+
+    .solution-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .solution-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.5; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .data-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .data-card { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px; }
+    .data-card .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .data-card .val { font-family: var(--font-mono); font-weight: 600; color: var(--accent-cyan); }
+
+    .services-category { margin-top: 2rem; margin-bottom: 1.5rem; font-size: 1.2rem; border-left: 3px solid var(--accent-cyan); padding-left: 0.75rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+    .card { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 8px; transition: transform 0.2s, border-color 0.2s; position: relative; }
+    .card:hover { transform: translateY(-2px); border-color: rgba(34, 211, 238, 0.4); }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .project-card { display: flex; flex-direction: column; justify-content: space-between; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .tag { font-family: var(--font-mono); font-size: 0.75rem; background: rgba(0,0,0,0.05); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted); }
+    [data-theme="dark"] .tag { background: rgba(255,255,255,0.05); }
+
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .step-number { font-family: var(--font-mono); font-size: 2rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+
+    .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; margin-top: 2rem; }
+    form { display: flex; flex-direction: column; gap: 1.25rem; background: var(--bg-surface); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    label { font-size: 0.9rem; font-weight: 500; }
+    input, select, textarea { background: var(--input-bg); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.75rem; border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent-cyan); }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; }
+
+    .whatsapp-fab {
+      position: fixed; bottom: 2rem; right: 2rem; width: 56px; height: 56px;
+      background-color: #25D366; color: white; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 999; transition: transform 0.2s;
+    }
+    .whatsapp-fab:hover { transform: scale(1.1); }
+    footer { padding: 3rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">&lt;CandelaGomez.dev /&gt;</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="nav_about">Quién soy</a></li>
+          <li><a href="#services" data-i18n="nav_services">Servicios</a></li>
+          <li><a href="#projects" data-i18n="nav_projects">Proyectos</a></li>
+          <li><a href="#process" data-i18n="nav_process">Proceso</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+        </ul>
+        <div class="controls">
+          <button id="langToggle" class="control-btn" aria-label="Cambiar idioma">EN</button>
+          <button id="themeToggle" class="control-btn" aria-label="Cambiar tema">☀️</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <!-- Glow Blobs discretos -->
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+
+      <div class="container">
+        <span class="badge-mono" data-i18n="hero_badge">// DISPONIBLE PARA PROYECTOS REMOTOS Y LOCALES</span>
+        <h1 data-i18n="hero_title">Desarrollo frontend Angular · Sistemas de gestión · Integraciones con IA</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">Arreglo bugs en producción, migro versiones y entrego sistemas de gestión rápidos, limpios y escalables.</p>
+        
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero_cta_wa">Escribime por WhatsApp</a>
+          <a href="#quick-solutions" class="btn btn-secondary" data-i18n="hero_cta_services">¿En qué puedo ayudarte?</a>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Angular</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">React</span>
+          <span class="chip">APIs REST</span>
+          <span class="chip">Responsive</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SOLUCIONES CON ÍCONOS SVG VECTORIALES -->
+    <section id="quick-solutions">
+      <div class="container">
+        <span class="badge-mono" data-i18n="sol_num">// SOLUCIONES PARA TU NEGOCIO</span>
+        <h2 data-i18n="sol_heading">¿Qué puedo resolver o construir para vos?</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;" data-i18n="sol_sub">Transformo tus necesidades comerciales en herramientas digitales sencillas y eficientes.</p>
+
+        <div class="solutions-grid">
+          
+          <article class="solution-card">
+            <div class="solution-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM3.6 9h16.8M3.6 15h16.8M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 01-4-9 15.3 15.3 0 014-9z" />
+              </svg>
+            </div>
+            <h3 data-i18n="sol1_t">Páginas Web Profesionales</h3>
+            <p data-i18n="sol1_d">Sitios modernos, rápidos y optimizados para celulares para que tus clientes te me encuentren y te contacten de inmediato.</p>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.25C3 12.56 3.56 12 4.25 12h15.5c.69 0 1.25.56 1.25 1.25v6.5c0 .69-.56 1.25-1.25 1.25H4.25C3.56 21 3 20.44 3 19.75v-6.5zM16 12V7a4 4 0 10-8 0v5" />
+              </svg>
+            </div>
+            <h3 data-i18n="sol2_t">Sistemas para PyMEs</h3>
+            <p data-i18n="sol2_d">Plataformas digitales para gestionar tu negocio (ventas, stock, reportes o clientes) sin depender de planillas complejas.</p>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+              </svg>
+            </div>
+            <h3 data-i18n="sol3_t">Chatbots e Inteligencia Artificial</h3>
+            <p data-i18n="sol3_d">Asistentes automáticos para responder consultas en tu web 24/7, ahorrar tiempo de atención y captar más clientes.</p>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l2.496-3.03c.317-.384.74-.664 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l5.654-4.654m.893 2.587l2.587-.893M15.17 11.42L21 5.58A2.652 2.652 0 0017.25 1.83l-5.83 5.83M15.17 11.42l-3.03-2.496a2.495 2.495 0 00-.766-1.208" />
+              </svg>
+            </div>
+            <h3 data-i18n="sol4_t">Soporte y Arreglo de Errores</h3>
+            <p data-i18n="sol4_d">Solución rápida de fallas, mejoras de velocidad y agregado de nuevas funciones a sitios o sistemas existentes.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <span class="badge-mono" data-i18n="about_num">01. SOBRE MÍ</span>
+        <div class="about-grid">
+          <div>
+            <h2 style="margin-bottom: 1rem;" data-i18n="about_heading">Desarrolladora Frontend enfocada en soluciones reales</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;" data-i18n="about_p1">
+              Me especializo en el ecosistema Angular. Mi trabajo diario abarca la creación y mantenimiento de sistemas de gestión web y la corrección rápida de errores críticos en entornos de producción.
+            </p>
+            <p style="color: var(--text-muted);" data-i18n="about_p2">
+              Cuento con experiencia complementaria en desarrollo backend y maquetado fiel desde Figma, garantizando un flujo fluido entre el diseño y la lógica del sistema.
+            </p>
+          </div>
+
+          <div class="data-cards">
+            <div class="data-card">
+              <div class="label" data-i18n="about_stack_label">Stack principal</div>
+              <div class="val">Angular / TypeScript / RxJS</div>
+            </div>
+            <div class="data-card">
+              <div class="label" data-i18n="about_loc_label">Modalidad</div>
+              <div class="val" data-i18n="about_loc_val">Remoto / Mendoza, Argentina</div>
+            </div>
+            <div class="data-card">
+              <div class="label" data-i18n="about_disp_label">Disponibilidad</div>
+              <div class="val" data-i18n="about_disp_val">Trabajo Freelance y Consultoría</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <span class="badge-mono" data-i18n="services_num">02. SERVICIOS FREELANCE</span>
+        <h2 data-i18n="services_heading">Desarrollo Frontend e Integración de IA</h2>
+
+        <h3 class="services-category" data-i18n="cat_frontend">Desarrollo Frontend & Angular</h3>
+        <div class="grid-4">
+          <article class="card">
+            <h3 data-i18n="s1_t">Desarrollo de aplicaciones Angular</h3>
+            <p data-i18n="s1_d">Construcción de aplicaciones web SPA robustas, mantenibles y preparadas para crecer.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s2_t">Landing pages rápidas</h3>
+            <p data-i18n="s2_d">Páginas de alta velocidad optimizadas para conversión directa y posicionamiento SEO.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s3_t">Corrección de errores (Bugs)</h3>
+            <p data-i18n="s3_d">Diagnóstico preciso y solución de fallos en proyectos Angular en producción.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s4_t">Integración de APIs REST</h3>
+            <p data-i18n="s4_d">Conexión segura y eficiente entre la interfaz de usuario y tus servicios backend.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s5_t">Maquetado responsive</h3>
+            <p data-i18n="s5_d">Adaptación perfecta de componentes a móviles, tablets y monitores de escritorio.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s6_t">Optimización de rendimiento</h3>
+            <p data-i18n="s6_d">Mejora de tiempos de carga, renderizado de componentes y métricas de Core Web Vitals.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s7_t">Organización de código</h3>
+            <p data-i18n="s7_d">Refactorización y limpieza de arquitectura para proyectos difíciles de mantener.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="s8_t">Migración de versiones Angular</h3>
+            <p data-i18n="s8_d">Actualización gradual y segura de proyectos heredados a versiones modernas de Angular.</p>
+          </article>
+        </div>
+
+        <h3 class="services-category" data-i18n="cat_ai">Integraciones con Inteligencia Artificial</h3>
+        <div class="grid-4">
+          <article class="card">
+            <span class="badge-mono">IA</span>
+            <h3 data-i18n="s9_t">Integración de chatbots web</h3>
+            <p data-i18n="s9_d">Implementación de asistentes conversacionales para captar clientes en tu sitio 24/7.</p>
+          </article>
+          <article class="card">
+            <span class="badge-mono">IA</span>
+            <h3 data-i18n="s10_t">Asistentes para preguntas frecuentes</h3>
+            <p data-i18n="s10_d">Automatización de la atención al cliente resolviendo consultas repetitivas.</p>
+          </article>
+          <article class="card">
+            <span class="badge-mono">IA</span>
+            <h3 data-i18n="s11_t">Automatización de respuestas</h3>
+            <p data-i18n="s11_d">Flujos inteligentes para categorizar y responder consultas iniciales de usuarios.</p>
+          </article>
+          <article class="card">
+            <span class="badge-mono">IA</span>
+            <h3 data-i18n="s12_t">IA para pequeños negocios</h3>
+            <p data-i18n="s12_d">Configuración rápida de herramientas accesibles para potenciar PYMEs y comercios.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <span class="badge-mono" data-i18n="projects_num">03. CASOS Y PROYECTOS</span>
+        <h2 data-i18n="projects_heading">Experiencia práctica</h2>
+
+        <div class="grid-3">
+          <article class="card project-card">
+            <div>
+              <h3 data-i18n="p1_t">Portfolio para Músico</h3>
+              <p style="margin-top: 0.5rem;" data-i18n="p1_d">Sitio web responsive enfocado en marca personal con tiempos de carga inmediatos y reproducción multimedia.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Design</span>
+              <span class="tag">CSS</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <h3 data-i18n="p2_t">Panel de Administración Interna</h3>
+              <p style="margin-top: 0.5rem;" data-i18n="p2_d">Sistema de logística y entregas con control de pedidos, asignación de usuarios e interfaz diseñada en Figma.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Angular</span>
+              <span class="tag">REST API</span>
+              <span class="tag">Figma</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <h3 data-i18n="p3_t">Sistemas de Gestión Web</h3>
+              <p style="margin-top: 0.5rem;" data-i18n="p3_d">Mantenimiento continuo, desarrollo de nuevos módulos, fixes críticos en producción y optimización de código.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Angular</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Optimization</span>
+            </div>
+          </article>
+        </div>
+
+        <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;" data-i18n="projects_note">
+          * Puedo detallar aspectos técnicos y mostrar maquetas en una videollamada corta.
+        </p>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <span class="badge-mono" data-i18n="proc_num">04. METODOLOGÍA</span>
+        <h2 data-i18n="proc_heading">Proceso de trabajo ágil</h2>
+
+        <div class="process-steps">
+          <div class="card">
+            <div class="step-number">01</div>
+            <h3 data-i18n="pr1_t">Me contás el problema</h3>
+            <p data-i18n="pr1_d">Revisamos el requerimiento, la falla técnica o el proyecto que querés lanzar.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">02</div>
+            <h3 data-i18n="pr2_t">Presupuesto y plazo en 24h</h3>
+            <p data-i18n="pr2_d">Te envío una propuesta clara con tiempos de entrega y alcance estipulado.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">03</div>
+            <h3 data-i18n="pr3_t">Entrego y ajusto</h3>
+            <p data-i18n="pr3_d">Desarrollo la solución, te presento los avances y realizamos los ajustes finales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <span class="badge-mono" data-i18n="contact_num">05. CONTACTO DIRECTO</span>
+        <h2 data-i18n="contact_heading">Escribime para iniciar tu proyecto</h2>
+
+        <div class="contact-grid">
+          <form id="whatsappForm">
+            <div class="form-group">
+              <label for="name" data-i18n="lbl_name">Tu Nombre</label>
+              <input type="text" id="name" placeholder="Ej. Juan Pérez" required>
+            </div>
+
+            <div class="form-group">
+              <label for="service" data-i18n="lbl_service">Servicio requerido</label>
+              <select id="service" required>
+                <optgroup label="Desarrollo Frontend" id="opt_group_fe">
+                  <option value="Desarrollo de aplicaciones Angular">Desarrollo de aplicaciones Angular</option>
+                  <option value="Landing pages rápidas">Landing pages rápidas</option>
+                  <option value="Corrección de errores en proyectos Angular">Corrección de errores en Angular</option>
+                  <option value="Integración de APIs REST">Integración de APIs REST</option>
+                  <option value="Maquetado responsive">Maquetado responsive</option>
+                  <option value="Optimización de rendimiento">Optimización de rendimiento</option>
+                  <option value="Organización de proyectos frontend">Organización de proyectos</option>
+                  <option value="Migración de versiones de Angular">Migración de versiones de Angular</option>
+                </optgroup>
+                <optgroup label="Servicios con IA" id="opt_group_ai">
+                  <option value="Integración de chatbots en páginas web">Integración de chatbots web</option>
+                  <option value="Implementación de asistentes para FAQ">Asistente para preguntas frecuentes</option>
+                  <option value="Automatización de respuestas básicas mediante IA">Automatización con IA</option>
+                  <option value="Configuración de herramientas de IA para pequeños negocios">Herramientas IA para PYMEs</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" data-i18n="lbl_msg">Detalle del proyecto o consulta</label>
+              <textarea id="message" rows="4" placeholder="Contame brevemente qué necesitás resolver o construir..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-i18n="btn_send">Enviar a WhatsApp</button>
+          </form>
+
+          <div class="contact-info">
+            <div>
+              <h3 data-i18n="contact_sub">Respuesta Rápida</h3>
+              <p style="color: var(--text-muted); margin-top: 0.5rem;" data-i18n="contact_sub_p">
+                Atención directa para presupuestos y consultas técnicas.
+              </p>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.95rem;">
+              <p style="margin-bottom: 0.5rem;"><strong>Email:</strong> <a href="mailto:gcandela894@gmail.com" style="color: var(--accent-cyan);">gcandela894@gmail.com</a></p>
+            </div>
+
+            <a href="https://wa.me/5492612644649?text=Hola,%20quisiera%20consultar%20por%20un%20servicio%20web." target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="btn_direct_wa">
+              Chat directo por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Candela Gómez — <span data-i18n="footer_rights">Desarrolladora Angular Freelance.</span></p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5492612644649?text=Hola,%20me%20interesa%20consultarte%20por%20un%20servicio%20web." class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
+    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Diccionario I18N
+    const translations = {
+      es: {
+        nav_about: "Quién soy", nav_services: "Servicios", nav_projects: "Proyectos", nav_process: "Proceso", nav_contact: "Contacto",
+        hero_badge: "// DISPONIBLE PARA PROYECTOS REMOTOS Y LOCALES",
+        hero_title: "Desarrollo frontend Angular · Sistemas de gestión · Integraciones con IA",
+        hero_subtitle: "Arreglo bugs en producción, migro versiones y entrego sistemas de gestión rápidos, limpios y escalables.",
+        hero_cta_wa: "Escribime por WhatsApp", hero_cta_services: "¿En qué puedo ayudarte?",
+        
+        sol_num: "// SOLUCIONES PARA TU NEGOCIO",
+        sol_heading: "¿Qué puedo resolver o construir para vos?",
+        sol_sub: "Transformo tus necesidades comerciales en herramientas digitales sencillas y eficientes.",
+        sol1_t: "Páginas Web Profesionales", sol1_d: "Sitios modernos, rápidos y optimizados para celulares para que tus clientes te encuentren y te contacten de inmediato.",
+        sol2_t: "Sistemas para PyMEs", sol2_d: "Plataformas digitales para gestionar tu negocio (ventas, stock, reportes o clientes) sin depender de planillas complejas.",
+        sol3_t: "Chatbots e Inteligencia Artificial", sol3_d: "Asistentes automáticos para responder consultas en tu web 24/7, ahorrar tiempo de atención y captar más clientes.",
+        sol4_t: "Soporte y Arreglo de Errores", sol4_d: "Solución rápida de fallas, mejoras de velocidad y agregado de nuevas funciones a sitios o sistemas existentes.",
+
+        about_num: "01. SOBRE MÍ", about_heading: "Desarrolladora Frontend enfocada en soluciones reales",
+        about_p1: "Me especializo en el ecosistema Angular. Mi trabajo diario abarca la creación y mantenimiento de sistemas de gestión web y la corrección rápida de errores críticos en entornos de producción.",
+        about_p2: "Cuento con experiencia complementaria en desarrollo backend y maquetado fiel desde Figma, garantizando un flujo fluido entre el diseño y la lógica del sistema.",
+        about_stack_label: "Stack principal", about_loc_label: "Modalidad", about_loc_val: "Remoto / Mendoza, Argentina",
+        about_disp_label: "Disponibilidad", about_disp_val: "Trabajo Freelance y Consultoría",
+        services_num: "02. SERVICIOS FREELANCE", services_heading: "Desarrollo Frontend e Integración de IA",
+        cat_frontend: "Desarrollo Frontend & Angular", cat_ai: "Integraciones con Inteligencia Artificial",
+        s1_t: "Desarrollo de aplicaciones Angular", s1_d: "Construcción de aplicaciones web SPA robustas, mantenibles y preparadas para crecer.",
+        s2_t: "Landing pages rápidas", s2_d: "Páginas de alta velocidad optimizadas para conversión directa y posicionamiento SEO.",
+        s3_t: "Corrección de errores (Bugs)", s3_d: "Diagnóstico preciso y solución de fallos en proyectos Angular en producción.",
+        s4_t: "Integración de APIs REST", s4_d: "Conexión segura y eficiente entre la interfaz de usuario y tus servicios backend.",
+        s5_t: "Maquetado responsive", s5_d: "Adaptación perfecta de componentes a móviles, tablets y monitores de escritorio.",
+        s6_t: "Optimización de rendimiento", s6_d: "Mejora de tiempos de carga, renderizado de componentes y métricas de Core Web Vitals.",
+        s7_t: "Organización de código", s7_d: "Refactorización y limpieza de arquitectura para proyectos difíciles de mantener.",
+        s8_t: "Migración de versiones Angular", s8_d: "Actualización gradual y segura de proyectos heredados a versiones modernas de Angular.",
+        s9_t: "Integración de chatbots web", s9_d: "Implementación de asistentes conversacionales para captar clientes en tu sitio 24/7.",
+        s10_t: "Asistentes para preguntas frecuentes", s10_d: "Automatización de la atención al cliente resolviendo consultas repetitivas.",
+        s11_t: "Automatización de respuestas", s11_d: "Flujos inteligentes para categorizar y responder consultas iniciales de usuarios.",
+        s12_t: "IA para pequeños negocios", s12_d: "Configuración rápida de herramientas accesibles para potenciar PYMEs y comercios.",
+        projects_num: "03. CASOS Y PROYECTOS", projects_heading: "Experiencia práctica",
+        p1_t: "Portfolio para Músico", p1_d: "Sitio web responsive enfocado en marca personal con tiempos de carga inmediatos y reproducción multimedia.",
+        p2_t: "Panel de Administración Interna", p2_d: "Sistema de logística y entregas con control de pedidos, asignación de usuarios e interfaz diseñada en Figma.",
+        p3_t: "Sistemas de Gestión Web", p3_d: "Mantenimiento continuo, desarrollo de nuevos módulos, fixes críticos en producción y optimización de código.",
+        projects_note: "* Puedo detallar aspectos técnicos y mostrar maquetas en una videollamada corta.",
+        proc_num: "04. METODOLOGÍA", proc_heading: "Proceso de trabajo ágil",
+        pr1_t: "Me contás el problema", pr1_d: "Revisamos el requerimiento, la falla técnica o el proyecto que querés lanzar.",
+        pr2_t: "Presupuesto y plazo en 24h", pr2_d: "Te envío una propuesta clara con tiempos de entrega y alcance estipulado.",
+        pr3_t: "Entrego y ajusto", pr3_d: "Desarrollo la solución, te presento los avances y realizamos los ajustes finales.",
+        contact_num: "05. CONTACTO DIRECTO", contact_heading: "Escribime para iniciar tu proyecto",
+        lbl_name: "Tu Nombre", lbl_service: "Servicio requerido", lbl_msg: "Detalle del proyecto o consulta", btn_send: "Enviar a WhatsApp",
+        contact_sub: "Respuesta Rápida", contact_sub_p: "Atención directa para presupuestos y consultas técnicas.", btn_direct_wa: "Chat directo por WhatsApp",
+        footer_rights: "Desarrolladora Angular Freelance.", opt_fe: "Desarrollo Frontend", opt_ai: "Servicios con IA",
+        wa_prefix_name: "Hola! Mi nombre es", wa_prefix_service: "Estoy interesado en el servicio", wa_prefix_msg: "Detalle del proyecto"
+      },
+      en: {
+        nav_about: "About me", nav_services: "Services", nav_projects: "Projects", nav_process: "Process", nav_contact: "Contact",
+        hero_badge: "// AVAILABLE FOR REMOTE & LOCAL PROJECTS",
+        hero_title: "Angular Frontend Dev · Management Systems · AI Integrations",
+        hero_subtitle: "I fix production bugs, migrate versions, and deliver fast, clean, scalable web applications.",
+        hero_cta_wa: "Contact via WhatsApp", hero_cta_services: "How can I help you?",
+        
+        sol_num: "// SOLUTIONS FOR YOUR BUSINESS",
+        sol_heading: "What can I solve or build for you?",
+        sol_sub: "I turn your business needs into simple and efficient digital tools.",
+        sol1_t: "Professional Websites", sol1_d: "Modern, fast, and mobile-optimized websites so your clients can find and reach you instantly.",
+        sol2_t: "Custom Business Systems", sol2_d: "Digital tools to manage your business (sales, stock, reports, or clients) without relying on cluttered spreadsheets.",
+        sol3_t: "Chatbots & AI Integration", sol3_d: "Automated assistants to answer inquiries on your site 24/7, save customer support time, and capture leads.",
+        sol4_t: "Support & Bug Fixing", sol4_d: "Fast troubleshooting, performance improvements, and new feature implementations for existing sites.",
+
+        about_num: "01. ABOUT ME", about_heading: "Frontend Developer Focused on Real Solutions",
+        about_p1: "I specialize in the Angular ecosystem. My daily work spans building and maintaining complex management tools and fixing critical bugs in production.",
+        about_p2: "I also hold practical background in backend development and pixel-perfect implementation from Figma designs.",
+        about_stack_label: "Core Stack", about_loc_label: "Modality", about_loc_val: "Remote / Mendoza, Argentina",
+        about_disp_label: "Availability", about_disp_val: "Freelance & Consulting Work",
+        services_num: "02. FREELANCE SERVICES", services_heading: "Frontend Development & AI Integration",
+        cat_frontend: "Frontend & Angular Development", cat_ai: "Artificial Intelligence Services",
+        s1_t: "Angular Web Applications", s1_d: "Building robust, maintainable, and scalable SPA web applications from scratch.",
+        s2_t: "Fast Landing Pages", s2_d: "High-speed landing pages optimized for maximum conversion and SEO ranking.",
+        s3_t: "Bug Fixing & Diagnostics", s3_d: "Accurate troubleshooting and instant bug fixing for production Angular apps.",
+        s4_t: "REST API Integration", s4_d: "Seamless and secure data integration between frontend UI and backend services.",
+        s5_t: "Responsive Layouts", s5_d: "Perfect UI component adaptation across mobile, tablet, and desktop viewports.",
+        s6_t: "Performance Optimization", s6_d: "Boost render speed, reduce bundle size, and improve Core Web Vitals metrics.",
+        s7_t: "Code Architecture & Order", s7_d: "Refactoring cluttered codebases to enhance maintainability and scalability.",
+        s8_t: "Angular Version Upgrades", s8_d: "Safe and gradual migration of legacy codebases to modern Angular versions.",
+        s9_t: "Web Chatbot Integration", s9_d: "Embedding AI conversational bots to capture leads 24/7 on your website.",
+        s10_t: "FAQ AI Assistants", s10_d: "Automated customer support systems to handle repetitive inquiries effortless.",
+        s11_t: "Automated Responses", s11_d: "Smart workflows to categorize and answer user inquiries automatically.",
+        s12_t: "AI Solutions for SMBs", s12_d: "Setting up accessible AI tooling to boost small businesses and startups.",
+        projects_num: "03. CASUISTRY & PROJECTS", projects_heading: "Practical Work Experience",
+        p1_t: "Musician Portfolio", p1_d: "Responsive personal brand website built for speed with media integration.",
+        p2_t: "Internal Admin Dashboard", p2_d: "Logistics control panel for tracking deliveries, order management, and Figma UI.",
+        p3_t: "Web Management Systems", p3_d: "Ongoing development of new features, bug fixes in production, and code optimizations.",
+        projects_note: "* Detailed technical demos and Figma mockups can be showcased over a short call.",
+        proc_num: "04. METHODOLOGY", proc_heading: "Agile Workflow",
+        pr1_t: "Describe your issue", pr1_d: "We briefly review your requirement, bug fix, or new project goals.",
+        pr2_t: "Quote within 24h", pr2_d: "I send a clear proposal specifying timeline, scope, and estimated cost.",
+        pr3_t: "Delivery & Revisions", pr3_d: "I build the solution, present progress, and apply any final adjustments.",
+        contact_num: "05. DIRECT CONTACT", contact_heading: "Get in touch to start your project",
+        lbl_name: "Your Name", lbl_service: "Service Required", lbl_msg: "Project Details / Message", btn_send: "Send via WhatsApp",
+        contact_sub: "Fast Response", contact_sub_p: "Direct contact for quotes and technical consultations.", btn_direct_wa: "Direct WhatsApp Chat",
+        footer_rights: "Freelance Angular Developer.", opt_fe: "Frontend Development", opt_ai: "AI Services",
+        wa_prefix_name: "Hello! My name is", wa_prefix_service: "I am interested in", wa_prefix_msg: "Project details"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'es';
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+
+    const langBtn = document.getElementById('langToggle');
+    
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.getElementById('opt_group_fe').label = translations[lang].opt_fe;
+      document.getElementById('opt_group_ai').label = translations[lang].opt_ai;
+    }
+
+    langBtn.addEventListener('click', () => {
+      applyLanguage(currentLang === 'es' ? 'en' : 'es');
+    });
+
+    const themeBtn = document.getElementById('themeToggle');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem('theme', theme);
+      document.body.setAttribute('data-theme', theme);
+      themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    applyLanguage(currentLang);
+    applyTheme(currentTheme);
+
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const phone = "5492612644649";
+      const name = document.getElementById('name').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
+
+      const t = translations[currentLang];
+      const text = `${t.wa_prefix_name} *${name}*.\n` +
+                   `${t.wa_prefix_service}: *${service}*.\n` +
+                   `${t.wa_prefix_msg}: ${message}`;
+
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+    });
+  </script>
+</body>
+</html>
