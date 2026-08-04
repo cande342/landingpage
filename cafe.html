@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú | Café & Bistro</title>
+  <link rel="stylesheet" href="cafe.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Hero / Banner -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="tagline">Menú Digital</span>
+      <h1 class="brand-title">Atelier Café & Bar</h1>
+      <p class="brand-subtitle">Cafetería de Especialidad & Coctelería de Autor</p>
+    </div>
+  </header>
+
+  <!-- Sticky Bar: Filtros + Buscador Integrado -->
+  <div class="controls-bar">
+    <div class="controls-container">
+      <nav class="categories-nav">
+        <button class="filter-btn active">Todos</button>
+        <button class="filter-btn">Cafetería</button>
+        <button class="filter-btn">Brunch</button>
+        <button class="filter-btn">Panadería</button>
+        <button class="filter-btn">Coctelería</button>
+      </nav>
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" placeholder="Buscar plato, café o ingrediente...">
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout Principal -->
+  <main class="menu-container">
+
+    <!-- Sección 1: Categoría "Cafetería" -->
+    <section class="menu-section" data-category="Cafetería">
+      <div class="section-header">
+        <h2>Cafetería & Especialidad</h2>
+        <p>Granos 100% Arábica de origen seleccionado</p>
+      </div>
+
+      <div class="menu-list">
+        
+        <article class="menu-item">
+          <div class="item-main">
+            <h3 class="item-title">Espresso Tonic</h3>
+            <span class="dots"></span>
+            <span class="item-price">$3.800</span>
+          </div>
+          <div class="item-details">
+            <p class="item-desc">Doble shot de espresso, agua tónica artesanal y rodaja de pomelo fresco.</p>
+            <div class="tags">
+              <span class="tag">Fresco</span>
+              <span class="tag">Especialidad</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="item-main">
+            <h3 class="item-title">Flat White</h3>
+            <span class="dots"></span>
+            <span class="item-price">$3.200</span>
+          </div>
+          <div class="item-details">
+            <p class="item-desc">Doble Ristretto con capa fina de leche microtexturizada.</p>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="item-main">
+            <h3 class="item-title">Flat White Avena</h3>
+            <span class="dots"></span>
+            <span class="item-price">$3.600</span>
+          </div>
+          <div class="item-details">
+            <p class="item-desc">Preparado con bebida vegetal artesanal de avena tostada.</p>
+            <div class="tags">
+              <span class="tag vegan">Plant Based</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Sección 2: Categoría "Brunch" -->
+    <section class="menu-section" data-category="Brunch">
+      <div class="section-header">
+        <h2>Brunch & Salados</h2>
+        <p>Opciones saladas servidas durante todo el día</p>
+      </div>
+
+      <div class="menu-list">
+
+        <article class="menu-item">
+          <div class="item-main">
+            <h3 class="item-title">Avocado Toast Especial</h3>
+            <span class="dots"></span>
+            <span class="item-price">$6.900</span>
+          </div>
+          <div class="item-details">
+            <p class="item-desc">Pan de masa madre, palta pisada, huevo poché, semillas tostadas y aceite de oliva ev.</p>
+            <div class="tags">
+              <span class="tag">Recomendado</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Sección 3: Categoría "Panadería" -->
+    <section class="menu-section" data-category="Panadería">
+      <div class="section-header">
+        <h2>Panadería & Bakery</h2>
+        <p>Horneados frescos todas las mañanas</p>
+      </div>
+
+      <div class="menu-list">
+
+        <article class="menu-item">
+          <div class="item-main">
+            <h3 class="item-title">Croissant de Jamón & Queso</h3>
+            <span class="dots"></span>
+            <span class="item-price">$4.200</span>
+          </div>
+          <div class="item-details">
+            <p class="item-desc">Masa hojaldrada a la manteca, horneada con queso gruyère y jamón natural.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="credits">Diseño & Desarrollo por <strong>Candela Gómez</strong></p>
+      <p class="copyright">&copy; 2026 Atelier Café - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script con la lógica de filtrado -->
+  <script src="cafe.js"></script>
+</body>
+</html>
